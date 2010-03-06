@@ -2,8 +2,8 @@
 //  UCColorDot.m
 //  Remember
 //
-//  Created by Christoph on 25.05.09.
-//  Copyright 2009 Useless Coding. All rights reserved.
+//  Created by Christoph on 25.05.2009.
+//  Copyright 2009-2010 Useless Coding. All rights reserved.
 //
 
 #import "UCColorDot.h"
@@ -32,7 +32,7 @@
 		[shadow setShadowBlurRadius:2];
 		[shadow setShadowColor:[NSColor shadowColor]];
 		}
-		
+
 	return self;
 }
 
@@ -107,8 +107,9 @@
 			break;
 			}
 	[colorDot unlockFocus];
-	
+
 	return colorDot;
 }
+
 
 @end

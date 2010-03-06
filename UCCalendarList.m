@@ -2,11 +2,17 @@
 //  UCCalendarList.m
 //  Remember
 //
-//  Created by Christoph on 03.06.09.
-//  Copyright 2009 Useless Coding. All rights reserved.
+//  Created by Christoph on 03.06.2009.
+//  Copyright 2009-2010 Useless Coding. All rights reserved.
 //
 
 #import "UCCalendarList.h"
+#import "UCColorDot.h"
+
+static NSString * sColorDot = @"UCColorDot";
+static NSString * sTitle = @"UCTitle";
+static NSString * sDate = @"UCDate";
+NSString *const UCIsGroup = @"UCIsGroup";
 
 
 @implementation UCCalendarList
@@ -87,10 +93,9 @@
 	for(NSUInteger i=0; i<eventCount; i++)
 		{
 		event = (CalEvent *)[events objectAtIndex:i];
-		
+
 		if(![self date:lastDate isSameDayAs:event.startDate])
 			{
-//			NSLog(@"%@ vs. %@", lastDate, event.startDate);
 			if([_now compare:event.startDate]==NSOrderedAscending && ![self date:event.startDate isSameDayAs:_now]
 					&& [lastDate compare:_now]==NSOrderedAscending && ![self date:lastDate isSameDayAs:_now])
 				{
@@ -100,7 +105,7 @@
 			lastDate = [event.startDate retain];
 			[_events addObject:[self dictionaryForDate:lastDate now:_now]];
 			}
-		
+
 		[_events addObject:[self dictionaryForEvent:event now:_now]];
 		}
 
@@ -132,18 +137,18 @@
 	if([self date:aDate isSameDayAs:now])
 		{
 		entry = [NSDictionary dictionaryWithObjectsAndKeys:
-			[NSNumber numberWithInt:1], @"UCIsGroup",
-			[NSImage imageNamed:@"TodayTemplate"], @"UCColorDot",
-			[weekdayFormatter stringFromDate:aDate], @"UCTitle",
-			[dayFormatter stringFromDate:aDate], @"UCDate",
+			[NSNumber numberWithInt:1], UCIsGroup,
+			[NSImage imageNamed:@"TodayTemplate"], sColorDot,
+			[weekdayFormatter stringFromDate:aDate], sTitle,
+			[dayFormatter stringFromDate:aDate], sDate,
 		nil];
 		}
 	else
 		{
 		entry = [NSDictionary dictionaryWithObjectsAndKeys:
-			[NSNumber numberWithInt:1], @"UCIsGroup",
-			[weekdayFormatter stringFromDate:aDate], @"UCTitle",
-			[dayFormatter stringFromDate:aDate], @"UCDate",
+			[NSNumber numberWithInt:1], UCIsGroup,
+			[weekdayFormatter stringFromDate:aDate], sTitle,
+			[dayFormatter stringFromDate:aDate], sDate,
 		nil];
 		}
 	return entry;
@@ -154,15 +159,21 @@
 	NSString * title;
 	NSString * time;
 	NSInteger state;
-	
+
 	if(anEvent.location!=nil)
-		{ title = [NSString stringWithFormat:@"%@ \u2014 %@", anEvent.title, anEvent.location]; }
+		{
+		title = [NSString stringWithFormat:@"%@ \u2014 %@", anEvent.title, anEvent.location];
+		}
 	else
-		{ title = anEvent.title; }
+		{
+		title = anEvent.title;
+		}
 	if([anEvent.startDate compare:now]==NSOrderedAscending)
 		{
 		if([anEvent.endDate compare:now]==NSOrderedAscending)
-			{ state=2; } // danach
+			{
+			state=2;
+			} // danach
 		else
 			{
 			state=1;
@@ -170,15 +181,21 @@
 			} // aktiv
 		}
 	else
-		{ state=-1; } // vorher
+		{
+		state=-1;
+		} // vorher
 	if(anEvent.isAllDay)
-		{ time = NSLocalizedString(@"\u301c   ",@"Time for all-day events"); }
+		{
+		time = NSLocalizedString(@"\u301c   ",@"Time for all-day events");
+		}
 	else
-		{ time = [timeFormatter stringFromDate:anEvent.startDate]; }
+		{
+		time = [timeFormatter stringFromDate:anEvent.startDate];
+		}
 	return [NSDictionary dictionaryWithObjectsAndKeys:
-			[UCColorDot imageWithColor:anEvent.calendar.color state:state], @"UCColorDot",
-			title, @"UCTitle",
-			time, @"UCDate",
+			[UCColorDot imageWithColor:anEvent.calendar.color state:state], sColorDot,
+			title, sTitle,
+			time, sDate,
 		nil];
 }
 
@@ -186,8 +203,6 @@
 {
 	NSDateComponents * someComps =[calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:aDate];
 	NSDateComponents * otherComps =[calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:anotherDate];
-
-//	NSLog(@"%d-%d-%d vs. %d-%d-%d.", [someComps year],[someComps month],[someComps day], [otherComps year],[otherComps month],[otherComps day]);
 
 	return [someComps year]==[otherComps year] && [someComps month]==[otherComps month] && [someComps day]==[otherComps day];
 }

@@ -12,10 +12,11 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		BF07CDC40FCAD12400F25267 /* CalendarStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF07CDC30FCAD12400F25267 /* CalendarStore.framework */; };
-		BF07CDCB0FCAD34000F25267 /* UCCalendarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF07CDC90FCAD34000F25267 /* UCCalendarController.m */; };
 		BF07CE960FCAF82700F25267 /* UCColorDot.m in Sources */ = {isa = PBXBuildFile; fileRef = BF07CE950FCAF82700F25267 /* UCColorDot.m */; };
 		BF1B6C020FD6AF6700D4469F /* TodayTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1B6C010FD6AF6700D4469F /* TodayTemplate.png */; };
 		BFD1F89E0FD6C191000FF02D /* UCCalendarList.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD1F89D0FD6C191000FF02D /* UCCalendarList.m */; };
+		BFD444ED1142A4860047CFA0 /* RememberDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF07CD9C0FCACDAC00F25267 /* RememberDelegate.m */; };
+		BFD4458A1142AF310047CFA0 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BFD445881142AF310047CFA0 /* Credits.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,16 +30,15 @@
 		32CA4F630368D1EE00C91783 /* Remember_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Remember_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Remember.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Remember.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF07CD9B0FCACDAC00F25267 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		BF07CD9C0FCACDAC00F25267 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BF07CD9B0FCACDAC00F25267 /* RememberDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RememberDelegate.h; sourceTree = "<group>"; };
+		BF07CD9C0FCACDAC00F25267 /* RememberDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RememberDelegate.m; sourceTree = "<group>"; };
 		BF07CDC30FCAD12400F25267 /* CalendarStore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CalendarStore.framework; path = System/Library/Frameworks/CalendarStore.framework; sourceTree = SDKROOT; };
-		BF07CDC90FCAD34000F25267 /* UCCalendarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UCCalendarController.m; sourceTree = "<group>"; };
-		BF07CDCA0FCAD34000F25267 /* UCCalendarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UCCalendarController.h; sourceTree = "<group>"; };
 		BF07CE940FCAF82700F25267 /* UCColorDot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UCColorDot.h; sourceTree = "<group>"; };
 		BF07CE950FCAF82700F25267 /* UCColorDot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UCColorDot.m; sourceTree = "<group>"; };
 		BF1B6C010FD6AF6700D4469F /* TodayTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TodayTemplate.png; sourceTree = "<group>"; };
 		BFD1F89C0FD6C191000FF02D /* UCCalendarList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UCCalendarList.h; sourceTree = "<group>"; };
 		BFD1F89D0FD6C191000FF02D /* UCCalendarList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UCCalendarList.m; sourceTree = "<group>"; };
+		BFD445891142AF310047CFA0 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,10 +61,8 @@
 				BFD1F89D0FD6C191000FF02D /* UCCalendarList.m */,
 				BF07CE940FCAF82700F25267 /* UCColorDot.h */,
 				BF07CE950FCAF82700F25267 /* UCColorDot.m */,
-				BF07CDC90FCAD34000F25267 /* UCCalendarController.m */,
-				BF07CDCA0FCAD34000F25267 /* UCCalendarController.h */,
-				BF07CD9B0FCACDAC00F25267 /* AppDelegate.h */,
-				BF07CD9C0FCACDAC00F25267 /* AppDelegate.m */,
+				BF07CD9B0FCACDAC00F25267 /* RememberDelegate.h */,
+				BF07CD9C0FCACDAC00F25267 /* RememberDelegate.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -120,6 +118,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BFD445881142AF310047CFA0 /* Credits.rtf */,
 				BF1B6C010FD6AF6700D4469F /* TodayTemplate.png */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -163,6 +162,9 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Useless Coding";
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Remember" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
@@ -183,6 +185,7 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				BF1B6C020FD6AF6700D4469F /* TodayTemplate.png in Resources */,
+				BFD4458A1142AF310047CFA0 /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,9 +197,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
-				BF07CDCB0FCAD34000F25267 /* UCCalendarController.m in Sources */,
 				BF07CE960FCAF82700F25267 /* UCColorDot.m in Sources */,
 				BFD1F89E0FD6C191000FF02D /* UCCalendarList.m in Sources */,
+				BFD444ED1142A4860047CFA0 /* RememberDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +222,14 @@
 			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
+		BFD445881142AF310047CFA0 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFD445891142AF310047CFA0 /* English */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -235,7 +246,7 @@
 				GCC_PREFIX_HEADER = Remember_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = Remember;
+				PRODUCT_VERSION = "1.0β";
 			};
 			name = Debug;
 		};
@@ -249,8 +260,7 @@
 				GCC_PREFIX_HEADER = Remember_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = Remember;
-				PRODUCT_VERSION = 1.0;
+				PRODUCT_VERSION = "1.0β";
 			};
 			name = Release;
 		};
@@ -264,6 +274,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
+				PRODUCT_NAME = Remember;
 				SDKROOT = macosx10.5;
 			};
 			name = Debug;
@@ -276,6 +287,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
+				PRODUCT_NAME = Remember;
 				SDKROOT = macosx10.5;
 			};
 			name = Release;

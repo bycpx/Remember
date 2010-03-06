@@ -2,14 +2,16 @@
 //  UCCalendarList.h
 //  Remember
 //
-//  Created by Christoph on 03.06.09.
-//  Copyright 2009 Useless Coding. All rights reserved.
+//  Created by Christoph on 03.06.2009.
+//  Copyright 2009-2010 Useless Coding. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
 #import <CalendarStore/CalendarStore.h>
-#import "UCColorDot.h"
 
+extern NSString *const UCIsGroup;
+
+@class UCColorDot;
 
 @interface UCCalendarList : NSObject
 {
@@ -33,9 +35,9 @@ NSUInteger eventCount;
 - (void)setEvents:(NSArray *)events;
 
 - (NSDictionary *)dictionaryAtIndex:(NSUInteger)index;
-@property(nonatomic,readonly) NSUInteger count;
-@property(nonatomic,readonly) NSUInteger activeCount;
-@property(nonatomic,readonly) NSUInteger eventCount;
+@property(readonly) NSUInteger count;
+@property(readonly) NSUInteger activeCount;
+@property(readonly) NSUInteger eventCount;
 
 - (NSDictionary *)dictionaryForDate:(NSDate *)aDate now:(NSDate *)now;
 - (NSDictionary *)dictionaryForEvent:(CalEvent *)anEvent now:(NSDate *)now;
