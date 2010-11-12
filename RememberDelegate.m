@@ -19,6 +19,13 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventsChanged:) name:CalEventsChangedExternallyNotification object:[CalCalendarStore defaultCalendarStore]];
 	timer = [[NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES] retain];
 
+	statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
+	[statusItem retain];
+
+	[statusItem setImage:[NSImage imageNamed:@"TodayTemplate"]];
+	[statusItem setHighlightMode:YES];
+	[statusItem setMenu:statusMenu];
+
 	[self refresh:self];
 }
 
@@ -27,6 +34,7 @@
 	[timer invalidate];
 	[timer release];
 	[calendarList release];
+	[statusItem release];
 	[super dealloc];
 }
 
@@ -60,15 +68,17 @@
 								[[NSCalendarDate date] dateByAddingYears:0 months:0 days:7 hours:0 minutes:0 seconds:0] calendars:
 								[[CalCalendarStore defaultCalendarStore] calendars]];
 	calendarList = [[UCCalendarList alloc] initWithPredicate:eventRange];
-	
-	if(calendarList.activeCount>0)
-		{
-		[[NSApp dockTile] setBadgeLabel:[NSString stringWithFormat:@"%d", calendarList.activeCount]];
-		}
-	else
-		{
-		[[NSApp dockTile] setBadgeLabel:nil];
-		}
+
+	switch(calendarList.activeCount) {
+		case 0: [[statusMenu itemAtIndex:0] setTitle:@"No Events"];
+			[[NSApp dockTile] setBadgeLabel:nil];
+			break;
+		case 1: [[statusMenu itemAtIndex:0] setTitle:@"One Event"];
+			[[NSApp dockTile] setBadgeLabel:@"1"];
+			break;
+		default:  [[statusMenu itemAtIndex:0] setTitle:[NSString stringWithFormat:@"%d Events", calendarList.activeCount]];
+			[[NSApp dockTile] setBadgeLabel:[NSString stringWithFormat:@"%d", calendarList.activeCount]];
+	}
 
 	[tableView reloadData];
 }
@@ -77,11 +87,10 @@
 {
 	NSInteger row = [tableView clickedRow];
 
-	if([sender isKindOfClass:[NSTableView class]] && row!=-1 || [sender isKindOfClass:[NSMenuItem class]])
-		{
+	if([sender isKindOfClass:[NSTableView class]] && row!=-1 || [sender isKindOfClass:[NSMenuItem class]]) {
 		if(row==-1) { row=[tableView selectedRow]; }
 		NSLog(@"Öffnen: %@", [calendarList dictionaryAtIndex:row]);
-		}
+	}
 }
 
 #pragma mark Data Source
@@ -110,10 +119,9 @@
 
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem
 {
-	if([menuItem action]==@selector(openEvent:))
-		{
+	if([menuItem action]==@selector(openEvent:)) {
 		return [tableView selectedRow]!=-1;
-		}
+	}
 	return YES;
 }
 

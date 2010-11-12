@@ -16,10 +16,12 @@
     IBOutlet NSTableView * tableView;
 	IBOutlet NSScrollView * scrollView;
 	IBOutlet NSWindow * window;
+	IBOutlet NSMenu * statusMenu;
 
 @private
 	NSTimer * timer;
 	UCCalendarList * calendarList;
+	NSStatusItem * statusItem;
 }
 
 - (void)timerFired:(NSTimer *)theTimer;
